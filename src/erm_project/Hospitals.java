@@ -5,12 +5,13 @@ import java.util.ArrayList;
 public class Hospitals {
     private final String hospitalName;
     private final String hospitalAddress;
-    private ArrayList<Doctors> listOfDoctors = new ArrayList<>();
-    private ArrayList<MedTest> listOfTests = new ArrayList<>();
+    private ArrayList<Doctors> listOfDoctors;
+    private ArrayList<MedTest> listOfTests;
     public Hospitals(String hospitalName, String hospitalAddress){
         this.hospitalName = hospitalName;
         this.hospitalAddress = hospitalAddress;
-
+        this.listOfDoctors = new ArrayList<>();
+        this.listOfTests = new ArrayList<>();
     }
 
     public String getHospitalName() {
@@ -25,8 +26,8 @@ public class Hospitals {
         return listOfDoctors;
     }
 
-    public void addDoctor(String firstName, String lastName, int age) {
-      Doctors doctor = new Doctors("firstName","lastName",age);
+    public void addDoctor(Doctors doctor) {
+
        listOfDoctors.add(doctor);
     }
 
@@ -34,9 +35,9 @@ public class Hospitals {
         return listOfTests;
     }
 
-    public void addMedTest(String test) {
-        MedTest newTest = new MedTest("test");
-        listOfTests.add(newTest);
+    public void addMedTest(MedTest medTest) {
+
+        listOfTests.add(medTest);
 
     }
     public Doctors searchForDoctor(int id){
@@ -51,6 +52,7 @@ public class Hospitals {
         if (doctorlistIdex == -1) {
             throw new IllegalArgumentException("Doctor Id " + id + " can't be found");
         }
+        //this will return the index of the doctor to sack
         return listOfDoctors.get(doctorlistIdex);
     }
 
@@ -69,6 +71,7 @@ public class Hospitals {
             }
         if (indexOfMedTestToSearch == -1)
             throw new IllegalArgumentException("MedTest Id " + id + " can't be found");
+        // also this return the index of medtest to list
         return listOfTests.get(indexOfMedTestToSearch);
 
 
