@@ -36,6 +36,7 @@ public class UserTest {
         assertEquals(1, user.getUserId());
         user = new User("Loyal", "Thomson", "09061234534","kangi@gmail.com","No 34, Bariga");
         assertEquals(2, user.getUserId());
+        System.out.println(user.getUserId());
     }
 
     @Test

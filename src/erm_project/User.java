@@ -1,7 +1,7 @@
 package erm_project;
 
 public class User {
-    private static int uniqueId;
+    private static int uniqueId = 0;
     private String address;
     private String email;
     private String mobile;
